@@ -1,38 +1,107 @@
-.App {
+body .App {
+  font-family: 'Roboto Slab', serif;
+  background-color: #839695;
+  line-height: 1.2em;
+}
+.App .navbar {
+  background: #112B3E;
+  padding: 23px 25px 9px;
+}
+.navbar a.navbar-brand {
+  color: #fff;
+  font-size: 36px;
+  font-weight: 700;
+}
+.navbar .navbar-brand span {
+  font-size: 22px
+}
+.container-lg {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.App .card {
+  background-color: #112B3E;
+}
+.App .card-img {
+  width: 100%;
+  height: 225px;
+  background-size: cover;
+  background-position: center;
+}
+.App .card {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  z-index: 0;
+}
+.App .card:hover {
+  -webkit-transform:scale(1.1); /* Safari and Chrome */
+  -moz-transform:scale(1.1); /* Firefox */
+  -ms-transform:scale(1.1); /* IE 9 */
+  -o-transform:scale(1.1); /* Opera */
+   transform:scale(1.1);
+   z-index: 1;
+   background-color: #004e86;
+}
+.App .card-img, .App .card {
+  border-radius: 0;
+  border: none;
+}
+.card .card-text a {
+  margin-top: 0;
+  margin-bottom: 0;
+  height: 80px;
+  overflow: hidden;
+  color: #fff;
+  font-size: 24px;
   text-align: center;
+  line-height: 1.6em;
+}
+.card a {
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  width: 100%;
+}
+.card:hover a {
+  color: #fff;
+  text-decoration: underline;
+}
+.App  .img-fluid {
+  margin: 10px 0  30px;
+  width: 100%;
+  height: 448px;
+  background-size: cover;
+  background-position: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App h1 { 
+  font-size: 36px;
+  font-weight: 700;
+  color: #fff
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App h2 { 
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 25px
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.content {
+  white-space: pre-line;  
+  font-size: 17px;
+  font-weight: 500;
 }
 
-.App-link {
-  color: #61dafb;
+.comment  {
+  background: #fff;
+  padding: 18px 19px 43px 35px;
+  font-weight: 700;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.comment div {
+  font-size: 14px;
 }

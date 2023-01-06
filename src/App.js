@@ -1,24 +1,23 @@
 import React from 'react'
-import logo from './logo.svg'
 import './App.css'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Header from './components/Header'
+import Articles from './pages/articles'
+import DetailPage from './pages/detailPage'
 
 function App () {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-        <h1>Hello, World!</h1>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App ">
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Header />} >
+              <Route end path="/" element={<Articles />} />
+              <Route path="/article/:articleId" element={<DetailPage />} />
+              <Route path="" element={<Navigate to="/" />} />
+        </Route>
+      </Routes>
+      </BrowserRouter>
     </div>
   )
 }
