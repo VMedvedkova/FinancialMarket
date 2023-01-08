@@ -1,26 +1,31 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/jsx-key */
-/* eslint-disable multiline-ternary */
-/* import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-import customData from './financial-market-news-blog-project.json'
-import Card from '../components/Card' */
+/* eslint-disable operator-linebreak */
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import customData from './financial-market-news-blog-project.json'
+import { collection, getFirestore, getDocs } from 'firebase/firestore/lite'
+import { initializeApp } from 'firebase/app'
+import firebaseConfigData from '../components/firebaseConfigData'
 
 const DetailPage = (props) => {
-  // eslint-disable-next-line no-unused-vars
   const [data, setData] = useState([])
-  const [articleId, setArticleId] = useState([])
   const [article, setArticle] = useState([])
   const [sectionStyle, setSectionStyle] = useState({})
 
-  const articleParams = useParams()
+  const firebaseConfig = firebaseConfigData()
+  const app = initializeApp(firebaseConfig)
+  const db = getFirestore(app)
 
+  async function getArticles () {
+    const arts = collection(db, 'financial_blog_articles')
+    const citySnapshot = await getDocs(arts)
+    const artsList = citySnapshot.docs.map(doc => doc.data())
+    setData(artsList)
+    return artsList
+  }
   useEffect(() => {
-    setData(customData)
+    getArticles()
   }, [])
+
+  const articleParams = useParams()
 
   useEffect(() => {
     if (data.length > 0) {
@@ -36,13 +41,18 @@ const DetailPage = (props) => {
 
   return (
     <div className='container'>
-      <h1>{article.title}</h1>
-      <div className='img-fluid' style={ sectionStyle }></div>
-      <div className='content'>{article.description}</div>
-      <div className='comment'>
-        <h2>Experts Comment</h2>
-        <div>{article.expertComment}</div>
-      </div>
+       {article.title ?
+       <>
+          <h1>{article.title}</h1>
+          <div className='img-fluid' style={ sectionStyle }></div>
+          <div className='content'>{article.description}</div>
+          <div className='comment'>
+              <h2>Experts Comment</h2>
+              <div>{article.expertComment}</div>
+          </div>
+          </>
+         :
+        <div>Loading...</div>}
     </div>
   )
 }

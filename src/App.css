@@ -1,7 +1,8 @@
-body .App {
+body .App  {
   font-family: 'Roboto Slab', serif;
   background-color: #839695;
   line-height: 1.2em;
+  min-height: 100vh;
 }
 .App .navbar {
   background: #112B3E;
@@ -101,6 +102,7 @@ body .App {
   background: #fff;
   padding: 18px 19px 43px 35px;
   font-weight: 700;
+  margin: 30px 0
 }
 .comment div {
   font-size: 14px;

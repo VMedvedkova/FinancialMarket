@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 import './App.css'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
@@ -8,13 +9,13 @@ import DetailPage from './pages/detailPage'
 
 function App () {
   return (
-    <div className="App ">
+    <div className='App '>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Header />} >
-              <Route end path="/" element={<Articles />} />
-              <Route path="/article/:articleId" element={<DetailPage />} />
-              <Route path="" element={<Navigate to="/" />} />
+        <Route path='/' element={<Header />} >
+              <Route end path='/' element={<Articles />} />
+              <Route path='/article/:articleId' element={<DetailPage />} />
+              <Route path='' element={<Navigate to='/' />} />
         </Route>
       </Routes>
       </BrowserRouter>
